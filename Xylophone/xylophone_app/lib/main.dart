@@ -1,75 +1,73 @@
 import 'package:flutter/material.dart';
-//import 'package:audioplayers/audioplayers.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
+  final audioCache = AudioCache(
+      prefix: "assets/",
+      fixedPlayer: AudioPlayer()..setReleaseMode(ReleaseMode.RELEASE));
+
+  Expanded xylophoneBar(Color color, int noteNumber) {
+    return Expanded(
+      child: TextButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(color),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18.0),
+            ))),
+        onPressed: () {
+          audioCache.play('note$noteNumber.wav');
+        },
+        child: Container(
+          color: color,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              XylophoneBar(
-                color: Colors.red,
+              xylophoneBar(
+                Colors.red,
+                1,
               ),
-              XylophoneBar(
-                color: Colors.orange,
+              xylophoneBar(
+                Colors.orange,
+                2,
               ),
-              XylophoneBar(
-                color: Colors.yellow,
+              xylophoneBar(
+                Colors.yellow,
+                3,
               ),
-              XylophoneBar(
-                color: Colors.green,
+              xylophoneBar(
+                Colors.green,
+                4,
               ),
-              XylophoneBar(
-                color: Colors.red,
+              xylophoneBar(
+                Colors.teal,
+                5,
               ),
-              XylophoneBar(
-                color: Colors.red,
+              xylophoneBar(
+                Colors.blue,
+                6,
               ),
-              XylophoneBar(
-                color: Colors.purple,
+              xylophoneBar(
+                Colors.purple,
+                7,
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class XylophoneBar extends StatefulWidget {
-  XylophoneBar({
-    Key? key,
-    this.color = const Color(0xFFFFE306),
-  }) : super(key: key);
-
-  final Color color;
-
-  @override
-  _XylophoneBarState createState() => _XylophoneBarState();
-}
-
-class _XylophoneBarState extends State<XylophoneBar> {
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () {
-        //  final AudioCache audioCache = AudioCache();
-        //    audioCache.play('assets/note1.wav');
-      },
-      child: Container(
-        //   margin: EdgeInsets.symmetric(vertical: 0.2),
-        color: widget.color,
-        child: Center(
-          child: Text('Axz'),
-        ),
-        height: 90.0,
       ),
     );
   }
