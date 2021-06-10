@@ -15,4 +15,4 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-![alt text](https://github.com/johnlope/flutter-practice/blob/master/Xylophone/screen.png?raw=true  | width=100 )
+<img src="https://github.com/johnlope/flutter-practice/blob/master/Xylophone/screen.png" data-canonical-src="https://github.com/johnlope/flutter-practice/blob/master/Xylophone/screen.png" width="50%" height="50%" />
