@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class TaskTitle extends StatelessWidget {
   final String taskTitle;
   final bool isChecked;
-  Function(bool?)? checkboxCallback;
+  final Function(bool?)? checkboxCallback;
+  final GestureLongPressCallback? longPressCallback;
 
   TaskTitle(
-      {required this.taskTitle, this.isChecked = false, this.checkboxCallback});
+      {required this.taskTitle,
+      this.isChecked = false,
+      this.checkboxCallback,
+      this.longPressCallback});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onLongPress: longPressCallback,
       title: Text(
         taskTitle,
         style: TextStyle(

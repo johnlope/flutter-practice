@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_app/models/task_provider.dart';
 
+// ignore: must_be_immutable
 class AddTaskScreen extends StatelessWidget {
-  AddTaskScreen(this.addTaskCallback);
+  AddTaskScreen();
 
   String taskTitle = '';
-  final Function(String)? addTaskCallback;
-  TextEditingController textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,6 @@ class AddTaskScreen extends StatelessWidget {
               ),
             ),
             TextField(
-              controller: textController,
               autofocus: true,
               onChanged: (value) {
                 taskTitle = value;
@@ -52,8 +52,9 @@ class AddTaskScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                addTaskCallback!(taskTitle);
-                textController.clear();
+                Provider.of<TaskProvider>(context, listen: false)
+                    .addTask(taskTitle);
+                Navigator.pop(context);
               },
             )
           ],
