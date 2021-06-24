@@ -1,0 +1,13 @@
+{
+    "helloWorld": "Hola Mundo!",
+    "getWeatherCity":"Consultar el Clima",
+    "enterCityName" : "Digite el nombre de la ciudad",
+    "today": "hoy",
+    "monday" :"Lunes",
+    "tuesday" :"Martes",
+    "wednesday":"Miercoles",
+    "thursday":"Jueves",
+    "friday":"Viernes",
+    "saturday":"Sabado",
+    "sunday":"Domingo"
+}

@@ -1,0 +1,16 @@
+{
+    "helloWorld": "Hello World!",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "getWeatherCity":"Get Weather",
+    "enterCityName" : "Enter City Name",
+    "today": "now",
+    "monday" :"Monday",
+    "tuesday" :"Tuesday",
+    "wednesday":"Wednesday",
+    "thursday":"Thursday",
+    "friday":"Friday",
+    "saturday":"Saturday",
+    "sunday":"Sunday"
+}

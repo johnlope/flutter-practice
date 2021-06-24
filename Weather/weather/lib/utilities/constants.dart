@@ -16,8 +16,9 @@ const kDateTextStyle = TextStyle(
 );
 
 const kButtonTextStyle = TextStyle(
-  fontSize: 30.0,
+  fontSize: 15.0,
   fontFamily: 'Spartan MB',
+  color: Colors.white,
 );
 
 const kConditionTextStyle = TextStyle(
@@ -31,7 +32,6 @@ const kTextFieldInputDecoration = InputDecoration(
     Icons.location_city,
     color: Colors.white,
   ),
-  hintText: 'Enter City Name',
   hintStyle: TextStyle(
     color: Colors.grey,
   ),

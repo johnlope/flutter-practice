@@ -4,7 +4,7 @@ import 'package:weather/components/weather_day.dart';
 import 'package:weather/services/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:weather/utilities/constants.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'city_screen.dart';
 
 class LocationScreen extends StatefulWidget {
@@ -53,15 +53,16 @@ class _LocationScreenState extends State<LocationScreen> {
 
   String getDayName(int weekday) {
     List<String> days = [
-      'Monday',
-      'Tuesday',
-      'Wensday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-      'Sunday'
+      AppLocalizations.of(context)!.monday,
+      AppLocalizations.of(context)!.tuesday,
+      AppLocalizations.of(context)!.wednesday,
+      AppLocalizations.of(context)!.thursday,
+      AppLocalizations.of(context)!.friday,
+      AppLocalizations.of(context)!.saturday,
+      AppLocalizations.of(context)!.sunday
     ];
-    int index = (weekday > 0 && weekday <= days.length) ? weekday - 1 : 0;
+    int index =
+        (weekday > 0 && weekday <= days.length) ? weekday - 1 : weekday - 8;
 
     return days[index];
   }
@@ -71,7 +72,6 @@ class _LocationScreenState extends State<LocationScreen> {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Expanded(
               child: GestureDetector(
@@ -88,7 +88,6 @@ class _LocationScreenState extends State<LocationScreen> {
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  //crossAxisAlignment: CrossAxisAlignment.baseline,
                   children: [
                     Icon(
                       FontAwesomeIcons.mapMarkerAlt,
@@ -145,7 +144,7 @@ class _LocationScreenState extends State<LocationScreen> {
                 children: [
                   WeatherDay(
                     icon: weather.getWeatherAwesomIcon(condition),
-                    day: 'now',
+                    day: AppLocalizations.of(context)!.today,
                   ),
                   WeatherDay(
                     icon: FontAwesomeIcons.pooStorm,

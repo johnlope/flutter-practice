@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather/utilities/constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CityNameScreen extends StatefulWidget {
   CityNameScreen({Key? key}) : super(key: key);
@@ -43,19 +44,28 @@ class _CityNameScreenState extends State<CityNameScreen> {
                   style: TextStyle(
                     color: Colors.black,
                   ),
-                  decoration: kTextFieldInputDecoration,
+                  decoration: kTextFieldInputDecoration.copyWith(
+                    hintText: AppLocalizations.of(context)!.enterCityName,
+                  ),
                   onChanged: (value) {
                     cityName = value;
                   },
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context, cityName);
-                },
-                child: Text(
-                  'Get Weather',
-                  style: kButtonTextStyle,
+              Material(
+                elevation: 5.0,
+                color: Colors.blue[400],
+                borderRadius: BorderRadius.circular(30.0),
+                child: MaterialButton(
+                  onPressed: () {
+                    Navigator.pop(context, cityName);
+                  },
+                  minWidth: 200.0,
+                  height: 42.0,
+                  child: Text(
+                    AppLocalizations.of(context)!.getWeatherCity,
+                    style: kButtonTextStyle,
+                  ),
                 ),
               ),
             ],
